@@ -1,15 +1,46 @@
 // Find the maximum
+const maxOfTwoNumbers = (n1, n2) => {
+  return Math.max(n1, n2);
+};
 
 // Finding Longest Word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const findLongestWord = arr => {
+  let longest;
+  if(Array.isArray(arr) && arr.length > 0) {
+    longest = arr.sort((a, b) => {
+      return b.length - a.length;
+    });
+    return longest[0];
+  } else {
+    return null;
+  }
+};
 
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumArray = arr => {
+  if(Array.isArray(arr) && arr.length > 1) {
+    return arr.reduce((total, i) => {
+      return total + i;
+    });
+  } else {
+    return arr[0] !== undefined ? arr[0] : 0;
+  }
+};
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const averageNumbers = arr => {
+  if(Array.isArray(arr) && arr.length > 0) {
+    return sumArray(arr) / arr.length;
+  } else {
+    return null;
+  }
+};
+
 
 // Array of Strings
 const wordsArr = [
@@ -24,6 +55,14 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+const averageWordLength = arr => {
+  if(Array.isArray(arr) && arr.length > 0) {
+    return averageNumbers(arr.map(el => el.length));
+  } else {
+    return null;
+  }
+}
 
 // Unique Arrays
 const wordsUnique = [
@@ -91,3 +130,5 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+

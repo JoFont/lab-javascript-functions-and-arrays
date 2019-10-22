@@ -79,6 +79,13 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = arr => {
+  if(Array.isArray(arr)) {
+    let res = new Set(arr);
+    return [...res];
+  }
+};
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -90,6 +97,24 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = (arr, word) => {
+  if (Array.isArray(arr) && arr.length > 0) {
+    let res = [];
+    arr.forEach((el, index) => {
+      if(el === word) res.push(el);
+    });
+    if (res.length === 1) {
+      return true;
+    } else if(res.length === 0) {
+      return false;
+    } else {
+      return res;
+    }
+  } else {
+    return false;
+  }
+};
 
 // Counting Repetition
 const wordsCount = [
@@ -105,6 +130,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arr, word) => {
+  if (Array.isArray(arr) && arr.length > 0) {
+    let res = [];
+    arr.forEach((el, index) => {
+      if(el === word) res.push(el);
+    });
+    return res.length;
+  } else {
+    return 0;
+  }
+};
+
 
 // Bonus
 
@@ -132,3 +170,6 @@ const matrix = [
 ];
 
 
+// In the 20×20 grid below; What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
+
+// Declare a function named greatestProduct to find the answer!

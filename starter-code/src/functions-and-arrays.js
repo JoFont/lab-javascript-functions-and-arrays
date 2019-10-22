@@ -173,3 +173,39 @@ const matrix = [
 // In the 20×20 grid below; What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
 
 // Declare a function named greatestProduct to find the answer!
+
+const greatestProduct = arr => {
+  
+  let gP;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+
+      if(j === 0 && i === 0) {
+        gP = arr[i][j];
+      } else if(j > 3 && arr[i][j+4] <= arr[i].length) { // Calculate Left and Right
+
+        const left = arr[i][j] * arr[i][j-1] * arr[i][j-2] * arr[i][j-3];
+        const right = arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3];
+
+        if (left > gP) {
+          gP = left;
+        } else if (right > gP) {
+          gP = right;
+        }
+
+      } else if (i > 3 && arr[i+4] <= arr.length) { // Calculate Top and Bottom
+        const top = arr[i][j] * arr[i-1][j] * arr[i-2][j] * arr[i-3][j];
+        const bottom = arr[i][j] * arr[i+1][j] * arr[i+2][j] * arr[i+3][j];
+
+        if (top > gP) {
+          gP = top;
+        } else if (bottom > gP) {
+          gP = bottom;
+        }
+      }
+    }
+  }
+  return gP;
+  
+}
